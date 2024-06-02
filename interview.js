@@ -108,3 +108,38 @@ for (let i = 0; i < 5; i++) {
     f = f1;
     f1 = fib;
 }
+
+// display object where standard = 2
+let students = [
+    {id : 1, name : 'a', standard : 2},
+    {id : 2, name : 'b', standard : 3},
+    {id : 3, name : 'c', standard : 2},
+    {id : 4, name : 'd', standard : 1},
+    {id : 5, name : 'e', standard : 4},
+    {id : 6, name : 'f', standard : 2},
+
+]
+//  2 : {id : 1, name : 'a', standard : 2},  {id : 3, name : 'c', standard : 2},
+
+let arrayStudents = {};
+
+// Iterate over the students array
+students.forEach(student => {
+    let standard = student.standard;
+    if (!arrayStudents[standard]) {
+        arrayStudents[standard] = [];
+    }
+    arrayStudents[standard].push(student);
+});
+
+// Specify the standard you are interested in
+let targetStandard = 2;
+
+// Check if the target standard exists in the grouped students and print
+if (arrayStudents[targetStandard]) {
+    let studentList = arrayStudents[targetStandard]
+    .map(student => `{id: ${student.id}, name: '${student.name}', standard: ${student.standard}}`).join(', ');
+    console.log(`${targetStandard} : ${studentList}`);
+} else {
+    console.log(`No students found for standard ${targetStandard}`);
+}
