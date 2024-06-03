@@ -143,3 +143,19 @@ if (arrayStudents[targetStandard]) {
 } else {
     console.log(`No students found for standard ${targetStandard}`);
 }
+
+// reverse string using array a(0)
+const reverseString = function(s) {
+    let arr = s.split('');
+    let left = 0;
+    let right = arr.length-1;
+
+    while(left < right){
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
+    }
+   return arr.join('');
+};
+
+console.log(reverseString('hello'));
