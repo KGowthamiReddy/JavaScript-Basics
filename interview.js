@@ -111,12 +111,12 @@ for (let i = 0; i < 5; i++) {
 
 // display object where standard = 2
 let students = [
-    {id : 1, name : 'a', standard : 2},
-    {id : 2, name : 'b', standard : 3},
-    {id : 3, name : 'c', standard : 2},
-    {id : 4, name : 'd', standard : 1},
-    {id : 5, name : 'e', standard : 4},
-    {id : 6, name : 'f', standard : 2},
+    { id: 1, name: 'a', standard: 2 },
+    { id: 2, name: 'b', standard: 3 },
+    { id: 3, name: 'c', standard: 2 },
+    { id: 4, name: 'd', standard: 1 },
+    { id: 5, name: 'e', standard: 4 },
+    { id: 6, name: 'f', standard: 2 },
 
 ]
 //  2 : {id : 1, name : 'a', standard : 2},  {id : 3, name : 'c', standard : 2},
@@ -138,24 +138,60 @@ let targetStandard = 2;
 // Check if the target standard exists in the grouped students and print
 if (arrayStudents[targetStandard]) {
     let studentList = arrayStudents[targetStandard]
-    .map(student => `{id: ${student.id}, name: '${student.name}', standard: ${student.standard}}`).join(', ');
+        .map(student => `{id: ${student.id}, name: '${student.name}', standard: ${student.standard}}`).join(', ');
     console.log(`${targetStandard} : ${studentList}`);
 } else {
     console.log(`No students found for standard ${targetStandard}`);
 }
 
 // reverse string using array a(0)
-const reverseString = function(s) {
+const reverseString = function (s) {
     let arr = s.split('');
     let left = 0;
-    let right = arr.length-1;
+    let right = arr.length - 1;
 
-    while(left < right){
+    while (left < right) {
         [arr[left], arr[right]] = [arr[right], arr[left]];
         left++;
         right--;
     }
-   return arr.join('');
+    return arr.join('');
 };
 
 console.log(reverseString('hello'));
+
+// reverse the wods in sentence of a string
+// input: "this is a TseT"
+// output: "siht si a TesT"
+
+const str1 = 'this is a TseT';
+
+function myStr(str) {
+    let result = '';
+    let word = '';
+
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+
+        if (char === ' ') {
+            result += reverseString1(word) + ' ';
+            word = '';
+        } else {
+            word += char;
+        }
+    }
+
+    result += reverseString1(word);
+    return result;
+}
+
+function reverseString1(s) {
+    let reverse = '';
+
+    for (let i = s.length - 1; i >= 0; i--) {
+        reverse += s[i];
+    }
+    return reverse;
+}
+
+console.log(myStr(str1));       // siht si a TesT
