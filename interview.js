@@ -220,3 +220,20 @@ function mergeFun(word1, word2) {
 
 const merge = mergeFun(word1, word2);
 console.log(merge);         // apbqcr
+
+
+// Greatest common divisor of strings
+let str3 = "ABCABC";
+let str4 = "ABC";
+function gcdOfStrings(str1, str2) {
+    if (str1 + str2 !== str2 + str1) {
+        return "";
+    }
+
+    const gcdLength = (a, b) => (b === 0 ? a : gcdLength(b, a % b));
+
+    const gcd = gcdLength(str1.length, str2.length);
+    return str1.substring(0, gcd);
+}
+
+console.log(gcdOfStrings(str3, str4)); 
