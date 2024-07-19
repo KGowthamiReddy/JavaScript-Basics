@@ -195,3 +195,28 @@ function reverseString1(s) {
 }
 
 console.log(myStr(str1));       // siht si a TesT
+
+
+// merge string alternatively
+let word1 = 'abc';
+let word2 = 'pqr';
+
+function mergeFun(word1, word2) {
+    let mergeString = '';
+    let w1 = word1.length;
+    let w2 = word2.length;
+    let maxLen = Math.max(w1, w2);
+
+    for(let i = 0; i < maxLen; i++) {
+        if(i < w1) {
+            mergeString += word1[i];
+        }
+        if(i < w2) {
+            mergeString += word2[i];
+        }
+    }
+    return mergeString;
+}
+
+const merge = mergeFun(word1, word2);
+console.log(merge);         // apbqcr
