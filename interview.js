@@ -236,4 +236,20 @@ function gcdOfStrings(str1, str2) {
     return str1.substring(0, gcd);
 }
 
-console.log(gcdOfStrings(str3, str4)); 
+console.log(gcdOfStrings(str3, str4));  // ABC
+
+
+// Kids With the Greatest Number of Candies
+// Input: candies = [2,3,5,1,3], extraCandies = 3
+// Output: [true,true,true,false,true] 
+
+const candies = [2, 3, 5, 1, 3];
+const extraCandies = 3;
+
+const kidsWithCandies = function(candies, extraCandies) {
+    const maxCandies = Math.max(...candies); 
+    const result = candies.map(candy => candy + extraCandies >= maxCandies);
+    return result;
+};
+
+console.log(kidsWithCandies(candies,  extraCandies));       // [ true, true, true, false, true ]
