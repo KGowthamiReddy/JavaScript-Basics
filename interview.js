@@ -273,6 +273,7 @@ const reverseVowels = function(s) {
 
 console.log(reverseVowels(string1));        // Giwthamo
 
+
 // reverse the words in a string
 const string2 = 'gowthami reddy';
 const reverseWords = function(s) {
@@ -282,3 +283,30 @@ const reverseWords = function(s) {
 };
 
 console.log(reverseWords(string2));         // reddy gowthami
+
+
+// find unique numbers in two arrays
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+
+const findUniqueNumbers = function (arr1, arr2) {
+    const set1 = new Set(arr1);
+    const set2 = new Set(arr2);
+    const uniqueNumbers = [];
+
+    for (let num of set1) {
+        if (!set2.has(num)) {
+            uniqueNumbers.push(num);
+        }
+    }
+
+    for (let num of set2) {
+        if (!set1.has(num)) {
+            uniqueNumbers.push(num);
+        }
+    }
+
+    return uniqueNumbers;
+}
+
+console.log(findUniqueNumbers(arr1, arr2)); // Output: [1, 2, 3, 6, 7, 8]
