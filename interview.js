@@ -158,7 +158,7 @@ const reverseString = function (s) {
     return arr.join('');
 };
 
-console.log(reverseString('hello'));
+console.log(reverseString('hello'));    // olleh
 
 // reverse the wods in sentence of a string
 // input: "this is a TseT"
@@ -253,3 +253,32 @@ const kidsWithCandies = function(candies, extraCandies) {
 };
 
 console.log(kidsWithCandies(candies,  extraCandies));       // [ true, true, true, false, true ]
+
+
+// reverse vowels of a string
+const string1 = 'Gowthami';
+const reverseVowels = function(s) {
+    const LEN = s.length;
+    const str = [...s];
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    const rev = [];
+    for (let i = 0; i < LEN; i++) {
+      if (vowels.includes(s[i])) { rev.push(s[i]); }
+    }
+    for (let i = 0; i < LEN; i++) {
+      if (vowels.includes(str[i])) { str[i] = rev.pop(); }
+    }
+    return str.join('');
+};
+
+console.log(reverseVowels(string1));        // Giwthamo
+
+// reverse the words in a string
+const string2 = 'gowthami reddy';
+const reverseWords = function(s) {
+    let words = s.trim().split(/\s+/).reverse();
+
+    return words.join(' ');
+};
+
+console.log(reverseWords(string2));         // reddy gowthami
