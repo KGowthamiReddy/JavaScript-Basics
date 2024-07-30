@@ -310,3 +310,23 @@ const findUniqueNumbers = function (arr1, arr2) {
 }
 
 console.log(findUniqueNumbers(arr1, arr2)); // Output: [1, 2, 3, 6, 7, 8]
+
+
+// convert the first letter of an array object to uppercase
+
+const inputArray = [
+    {name: 'apple', value: 10},
+    {name: 'banana', value: 5},
+    {name: 'guava', value: 20},
+    {name: 'pineapple', value: 4},
+    {name: 'mango', value: 15},
+]
+const updatedArray = inputArray.map(obj => {
+    const { name, ...rest } = obj;
+    
+    const updatedName = name.charAt(0).toUpperCase() + name.slice(1);
+    
+    return { name: updatedName, ...rest };
+  });
+  
+  console.log(updatedArray);
