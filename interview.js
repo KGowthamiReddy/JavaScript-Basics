@@ -207,11 +207,11 @@ function mergeFun(word1, word2) {
     let w2 = word2.length;
     let maxLen = Math.max(w1, w2);
 
-    for(let i = 0; i < maxLen; i++) {
-        if(i < w1) {
+    for (let i = 0; i < maxLen; i++) {
+        if (i < w1) {
             mergeString += word1[i];
         }
-        if(i < w2) {
+        if (i < w2) {
             mergeString += word2[i];
         }
     }
@@ -246,27 +246,27 @@ console.log(gcdOfStrings(str3, str4));  // ABC
 const candies = [2, 3, 5, 1, 3];
 const extraCandies = 3;
 
-const kidsWithCandies = function(candies, extraCandies) {
-    const maxCandies = Math.max(...candies); 
+const kidsWithCandies = function (candies, extraCandies) {
+    const maxCandies = Math.max(...candies);
     const result = candies.map(candy => candy + extraCandies >= maxCandies);
     return result;
 };
 
-console.log(kidsWithCandies(candies,  extraCandies));       // [ true, true, true, false, true ]
+console.log(kidsWithCandies(candies, extraCandies));       // [ true, true, true, false, true ]
 
 
 // reverse vowels of a string
 const string1 = 'Gowthami';
-const reverseVowels = function(s) {
+const reverseVowels = function (s) {
     const LEN = s.length;
     const str = [...s];
     const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
     const rev = [];
     for (let i = 0; i < LEN; i++) {
-      if (vowels.includes(s[i])) { rev.push(s[i]); }
+        if (vowels.includes(s[i])) { rev.push(s[i]); }
     }
     for (let i = 0; i < LEN; i++) {
-      if (vowels.includes(str[i])) { str[i] = rev.pop(); }
+        if (vowels.includes(str[i])) { str[i] = rev.pop(); }
     }
     return str.join('');
 };
@@ -276,7 +276,7 @@ console.log(reverseVowels(string1));        // Giwthamo
 
 // reverse the words in a string
 const string2 = 'gowthami reddy';
-const reverseWords = function(s) {
+const reverseWords = function (s) {
     let words = s.trim().split(/\s+/).reverse();
 
     return words.join(' ');
@@ -314,16 +314,46 @@ console.log(findUniqueNumbers(arr1, arr2)); // Output: [1, 2, 3, 6, 7, 8]
 
 // convert the first letter of an array object to uppercase
 const inputArray = [
-    {name: 'apple', value: 10},
-    {name: 'banana', value: 5},
-    {name: 'guava', value: 20},
-    {name: 'pineapple', value: 4},
-    {name: 'mango', value: 15},
+    { name: 'apple', value: 10 },
+    { name: 'banana', value: 5 },
+    { name: 'guava', value: 20 },
+    { name: 'pineapple', value: 4 },
+    { name: 'mango', value: 15 },
 ]
 const updatedArray = inputArray.map(obj => {
     const { name, ...rest } = obj;
     const updatedName = name.charAt(0).toUpperCase() + name.slice(1);
     return { name: updatedName, ...rest };
-  });
-  
-  console.log(updatedArray);        //   { name: 'Apple', value: 10 },{ name: 'Banana', value: 5 },{ name: 'Guava', value: 20 },{ name: 'Pineapple', value: 4 },{ name: 'Mango', value: 15 }
+});
+
+console.log(updatedArray);        //   { name: 'Apple', value: 10 },{ name: 'Banana', value: 5 },{ name: 'Guava', value: 20 },{ name: 'Pineapple', value: 4 },{ name: 'Mango', value: 15 }
+
+
+//  to find the total of even numbers squared in an array.
+const evenNumber = [1, 2, 3, 4, 5];
+const total = evenNumber
+    .filter(num => num % 2 === 0)
+    .map(num => num * num)
+    .reduce((sum, num) => sum + num, 0);
+
+console.log(total);         //  20
+
+
+// to square of an array numbers
+const num1 = [2, 3, 4, 5];
+const square = num1.map(num => num * num);
+console.log(square);        // [ 4, 9, 16, 25 ]
+
+
+// to filter out and capitalize the names of people who are above 18 years old
+const people = [
+    { name: 'Alice', age: 17 },
+    { name: 'Bob', age: 25 },
+    { name: 'Charlie', age: 16 },
+    { name: 'David', age: 19 }
+  ];
+const adult = people
+    .filter(p => p.age > 18)
+    .map(p => p.name.toUpperCase());
+
+console.log(adult);    
